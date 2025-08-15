@@ -16,6 +16,9 @@ WORKDIR /app
 # 5. Copy dependency manifests
 COPY package.json pnpm-lock.yaml* ./
 
+RUN chown -R node:node /app
+USER node
+
 # 6. Install dependencies
 RUN pnpm install
 
